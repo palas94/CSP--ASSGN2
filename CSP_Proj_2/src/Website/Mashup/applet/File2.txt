@@ -1,0 +1,95 @@
+Party	States	Frequency	Attendance	 Age
+Bharatiya Janata Party	Andaman and Nicobar Islands	1	0.76	62
+All India Majlis-E-Ittehadul Muslimmen	Andhra Pradesh	1	0.69	43
+Indian National Congress	Andhra Pradesh	27	0.755185185	56.37037037
+Telangana Rashtra Samithi	Andhra Pradesh	2	0.115	52
+Telugu Desam Party	Andhra Pradesh	6	0.688333333	54
+Yuvajana Sramika Rythu Congress Party	Andhra Pradesh	2	0.505	53.5
+Indian National Congress	Arunachal Pradesh	2	0.78	49
+Asom Gana Parishad	Assam	1	0.73	58
+Assam United Democratic Front	Assam	1	0.52	62
+Bharatiya Janata Party	Assam	4	0.805	67.75
+Bodoland People's Front	Assam	1	0.6	52
+Indian National Congress	Assam	7	0.898571429	63.14285714
+Bharatiya Janata Party	Bihar	12	0.8575	58.66666667
+Independent	Bihar	3	0.793333333	53
+Indian National Congress	Bihar	1	0.94	70
+Janata Dal (United)	Bihar	20	0.878	58.95
+Rashtriya Janata Dal	Bihar	4	0.895	68
+Indian National Congress	Chandigarh	0	0	0
+Bharatiya Janata Party	Chhattisgarh	11	0.613636364	54.54545455
+Indian National Congress	Chhattisgarh	1	0.93	57
+Bharatiya Janata Party	Daman and Diu	2	0.565	48.5
+Indian National Congress	Delhi	4	0.9625	57.75
+Bharatiya Janata Party	Goa	1	0.8	59
+Indian National Congress	Goa	1	0.94	66
+Bharatiya Janata Party	Gujarat	15	0.828	58.26666667
+Indian National Congress	Gujarat	8	0.73875	55.75
+Haryana Janhit Congress	Haryana	2	0.465	62
+Indian National Congress	Haryana	8	0.7425	44.25
+Bharatiya Janata Party	Himachal Pradesh	3	0.89	52
+Indian National Congress	Himachal Pradesh	0	0	0
+Independent	Jammu and Kashmir	1	0.94	72
+Indian National Congress	Jammu and Kashmir	2	0.89	56.5
+Jammu and Kashmir National Conference	Jammu and Kashmir	2	0.86	70
+Bharatiya Janata Party	Jharkhand	7	0.797142857	55.85714286
+Independent	Jharkhand	2	0.59	55
+Indian National Congress	Jharkhand	0	0	0
+Jharkhand Mukti Morcha	Jharkhand	2	0.27	62
+Jharkhand Vikas Morcha (Prajatantrik)	Jharkhand	2	0.52	52
+Bharatiya Janata Party	Karnataka	19	0.706315789	53.10526316
+Indian National Congress	Karnataka	4	0.7825	60
+Janata Dal (Secular)	Karnataka	3	0.563333333	61
+Communist Party of India (Marxist)	Kerala	4	0.83	49
+Indian National Congress	Kerala	11	0.852727273	59.27272727
+Kerala Congress (M)	Kerala	1	0.83	47
+Muslim League Kerala State Committee	Kerala	1	0.77	66
+Indian National Congress	Lakshadweep	1	0.85	30
+Bahujan Samaj Party	Madhya Pradesh	1	0.87	43
+Bharatiya Janata Party	Madhya Pradesh	16	0.840625	58.1875
+Indian National Congress	Madhya Pradesh	10	0.817	52.7
+Bahujan Vikas Aaghadi	Maharashtra	1	0.93	56
+Bharatiya Janata Party	Maharashtra	9	0.72	58
+Independent	Maharashtra	1	0.48	77
+Indian National Congress	Maharashtra	13	0.809230769	59.07692308
+Nationalist Congress Party	Maharashtra	6	0.733333333	47
+Shiv Sena	Maharashtra	11	0.671818182	56.18181818
+Swabhimani Paksha	Maharashtra	1	0.73	45
+Indian National Congress	Meghalaya	2	0.99	62.5
+Nationalist Congress Party	Meghalaya	0	0	0
+Indian National Congress	Mizoram	1	0.97	76
+Nagaland People's Front	Nagaland	1	0.92	69
+Biju Janata Dal	Orissa	14	0.731428571	55.07142857
+Communist Party of India	Orissa	1	0.84	48
+Indian National Congress	Puducherry	5	0.818	50.6
+Bharatiya Janata Party	Punjab	1	0.28	48
+Indian National Congress	Punjab	7	0.867142857	54
+Shiromani Akali Dal	Punjab	4	0.755	56.75
+Bharatiya Janata Party	Rajasthan	4	0.8675	49.5
+Independent	Rajasthan	1	0.93	60
+Indian National Congress	Rajasthan	16	0.88	55.625
+Sikkim Democratic Front	Sikkim	1	0.9	58
+All India Anna Dravida Munnetra Kazhagam	Tamil Nadu	9	0.787777778	56.55555556
+Communist Party of India	Tamil Nadu	1	0.95	46
+Communist Party of India (Marxist)	Tamil Nadu	1	0.87	61
+Dravida Munnetra Kazhagam	Tamil Nadu	13	0.621538462	52.84615385
+Indian National Congress	Tamil Nadu	7	0.84	59.71428571
+Marumalarchi Dravida Munnetra Kazhagam	Tamil Nadu	1	0.73	65
+Viduthalai Chiruthaigal Katchi	Tamil Nadu	1	0.47	50
+Communist Party of India (Marxist)	Tripura	2	0.79	73
+Bahujan Samaj Party	Uttar Pradesh	20	0.82	52.3
+Bharatiya Janata Party	Uttar Pradesh	10	0.761	54.4
+Independent	Uttar Pradesh	2	0.38	65
+Indian National Congress	Uttar Pradesh	17	0.814117647	57.64705882
+Rashtriya Lok Dal	Uttar Pradesh	5	0.728	45.8
+Samajwadi Party	Uttar Pradesh	22	0.835	50.09090909
+Indian National Congress	Uttarakhand	4	0.8175	61
+All India Forward Bloc	West Bengal	2	0.71	54.5
+All India Trinamool Congress	West Bengal	15	0.604	59.73333333
+Bharatiya Janata Party	West Bengal	1	0.75	74
+Communist Party of India	West Bengal	2	0.885	70.5
+Communist Party of India (Marxist)	West Bengal	9	0.882222222	53.22222222
+Independent	West Bengal	1	0.74	53
+Indian National Congress	West Bengal	5	0.736	54.4
+Revolutionary Socialist Party	West Bengal	2	0.685	64.5
+‚Äã				

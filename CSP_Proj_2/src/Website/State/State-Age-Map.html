@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+CSP301        </title>
+        
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['table', 'corechart', 'controls', 'geochart']});
+            </script>
+        <script type="text/javascript">
+            var visualization;
+            
+            function drawVisualization() {
+                var query = new google.visualization.Query(
+                                                           'https://docs.google.com/spreadsheet/tq?range=A1%3AAB553&key=0AsVRW51CMwa-dDBiSmhVUHphRl9oYnJmdEcxOVNVZHc&gid=0&headers=-1');
+                query.setQuery('select E, count(K)  group by E pivot AA ');
+                // Send the query with a callback function.
+                query.send(handleQueryResponse);
+            }
+            
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var data = response.getDataTable();
+                var data2 = data.clone() ;
+                data2.removeColumns(1,57) ;
+                
+                var data3 = new google.visualization.DataTable();
+                data3.addColumn('string', 'State') ;
+                data3.addColumn('number', 'Avg. age') ;
+                
+                var scode = new Array ('IN-AN', 'IN-AP', 'IN-AR', 'IN-AS', 'IN-BR', 'IN-CH' , 'IN-CT' , 'IN-DN' , 'IN-DD' , 'IN-DL' , 'IN-GA' , 'IN-GJ' , 'IN-HR' , 'IN-HP' , 'IN-JK' , 'IN-JH' , 'IN-KA' , 'IN-KL', 'IN-LD' , 'IN-MP' , 'IN-MH' , 'IN-MN' , 'IN-ML' , 'IN-MZ' , 'IN-NL' , 'IN-OR' , 'IN-PY' , 'IN-PB' , 'IN-RJ' , 'IN-SK' , 'IN-TN' , 'IN-TR' , 'IN-UP' , 'IN-UT' , 'IN-WB'  ) ;
+                
+                
+                
+                
+                for( var i = 0 ; i < 5 ; i++) {
+                    data2.addColumn('number' , 10*(i+3) + '-' + (10*(i+3)+10) ) ;
+                }
+                data2.addColumn('number' , '80 above' ) ;
+                
+                for (var r = 1 ; r < 36 ; r++ ) 
+                {
+                    for (var j = 0 ; j < 5 ; j++ )
+                    {
+                        var sum = 0 ;
+                        for (var i = 1 ; i < 11; i++) {
+                            sum += data.getValue(r,  (j*10 + i)) ;   
+                        }
+                        data2.setValue(r,1+j,sum) ;
+                    }
+                }
+                
+                
+                for (var r2 = 1 ; r2 < 36 ; r2++ ) 
+                {
+                    var sum2 = 0 ;
+                    for (var i2 = 1 ; i2 < 3; i2++) {
+                        sum2 += data.getValue(r2,  (50 + i2)) ;  
+                    }
+                    
+                    data2.setValue(r2,6,sum2) ;
+                }
+                
+                for (var r3 = 1 ; r3 < 36 ; r3++ ) 
+                {
+                    var est = 0 ;
+                    var trc = 0 ;
+                    for (var i = 1 ; i < 7; i++)
+                    {
+                        est += ((25+(10*i))*(data2.getValue(r3, i ))) ;
+                    }
+                    for (var i = 1 ; i < 7; i++)
+                    {
+                        trc += data2.getValue(r3, i ) ;
+                    }
+                
+                    data3.addRow([ (scode[r3-1]) , est/trc ]) ;
+                }
+                
+                var options = {
+                    region: 'IN',
+                    resolution : 'provinces' ,
+                    colorAxis : {minValue: 35,  colors: ['#FFFFFF' , '#FF030D']}, 
+                   
+                    width : 730
+                };
+                var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+                chart.draw(data3,options);
+                
+            }
+            
+            
+            google.setOnLoadCallback(drawVisualization);
+            </script>
+    </head>
+    <body style="font-family: Arial;border: 0 none;">
+        								<h3 style="text-align:center">State Wise Age Distribution of MPs</h3>
+<div id="chart_div"></div>
+    </body>
+</html>
+​

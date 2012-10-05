@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            CSP301
+        </title>
+        
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['table', 'corechart', 'controls', 'treemap']});
+            </script>
+        <script type="text/javascript">
+
+            
+            function drawVisualization() {
+
+                
+                
+                
+                var query = new google.visualization.Query(
+                                                           'https://docs.google.com/spreadsheet/tq?range=A1%3AAD553&key=0AsVRW51CMwa-dDBiSmhVUHphRl9oYnJmdEcxOVNVZHc&gid=0&headers=-1');
+                query.setQuery('select E, G, O order by E, G') ;
+                query.send(handleQueryResponse);              
+                
+            }
+            
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var data = response.getDataTable() ;
+                
+                var data2 = new google.visualization.DataTable();
+                data2.addColumn('number', 'Frequency');
+                
+                var data3 = new google.visualization.DataTable();
+                data3.addColumn('string', 'Political Party');
+                data3.addColumn('string', 'State');
+                data3.addColumn('number', 'Frequency' ) ;
+                data3.addColumn('number', 'Avg. Attendance');
+                
+                data3.addRow (['India',    null,                 0,                               0] ) ;
+                data3.addRow ( ['Andaman and Nicobar Islands', 'India' , 0 , 0] ) ; 
+                data3.addRow ( ['Andhra Pradesh', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Arunachal Pradesh', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Assam', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Bihar', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Chandigarh', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Chhattisgarh', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Daman and Diu', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Delhi', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Goa', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Gujarat', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Haryana', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Himachal Pradesh', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Jammu and Kashmir', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Jharkhand', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Karnataka', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Kerala', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Lakshadweep', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Madhya Pradesh', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Maharashtra', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Meghalaya', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Mizoram', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Nagaland', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Orissa', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Puducherry', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Punjab', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Rajasthan', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Sikkim', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Tamil Nadu', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Tripura', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Uttar Pradesh', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['Uttarakhand', 'India' , 0 , 0] ) ;
+                data3.addRow ( ['West Bengal', 'India' , 0 , 0] ) ;
+                
+                
+                var r = 2 ;
+                
+                
+                while ( r < data.getNumberOfRows()  ) {
+                    var sum = 0.0 ;
+                    var v1 = data.getValue(r,1) ; 
+                    while (  (data.getValue(r,1) == v1)   ) {
+                        if (data.getValue(r,2) != null) {
+                        sum += 1 ;
+                        }
+                        r +=1 ;
+                        if ( r >= data.getNumberOfRows() ) {
+                            break;
+                        }
+                    }
+                    
+                    data2.addRow( [ sum ] ) ; 
+                                        
+                }
+                
+                var r2 = 2 ;
+                var i = 0 ;
+                
+                while ( r2 < data.getNumberOfRows()  ) {
+                    var sum = 0.0 ;
+                    var v1 = data.getValue(r2,1) ; 
+                    while (  (data.getValue(r2,1) == v1)   ) {
+                        if (data.getValue(r2,2) != null) {
+                        sum += parseFloat( data.getValue(r2,2) );
+                        }
+                        r2 +=1 ;
+                        if ( r2 >= data.getNumberOfRows() ) {
+                            break;
+                        }
+                    }
+                    if (data2.getValue(i,0) != 0 ) {
+                    sum /= data2.getValue(i,0) ;
+                    }
+                    else {
+                        sum = 0 ;
+                    }
+                    var istr = i.toString() ; 
+                    data3.addRow( [  istr + ") " + (data.getValue (r2 - 1,1)) , (data.getValue(r2 - 1 ,0)) ,data2.getValue(i,0) , sum] ) ; 
+                    i++ ;
+                    
+                }
+                
+             
+                
+                var treemap = new google.visualization.TreeMap(document.getElementById('visualization'));
+                treemap.draw(data3, {
+                             minColor: '#F2F2F2',
+                             midColor: '#FFE9E5',
+                             maxColor: '#FF2400',
+                             headerHeight: 15,
+                             fontColor: 'black',
+                             showScale: true});
+            
+                }
+                
+                
+                
+            
+            
+            
+            google.setOnLoadCallback(drawVisualization);
+            </script>
+    </head>
+	 
+	 <body style="font-family: Arial;border: 0 none;">
+       
+<center><h3>State Wise Party Distribution</h3></center>
+<p style="position:absolute;top:8%;left:22%;;font-size:14px"><b>The adjacent treemap is a representation of State-wise attendance distribution. A darker shade of color signifies a higher average attendance statistic. The size of each block is a measure of the number of MPs in the state. When left-clicked, the political party in the states become visible. To go back, the user has to right-click the treemap.</p>
+       
+        <div id="visualization" style="width: 1000px; height: 450px;margin-left:22%;position:fixed;bottom:5%"></div>
+		
+    </body>
+   
+</html>
+​

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+CSP301        </title>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['table', 'corechart', 'controls']});
+            </script>
+        <script type="text/javascript">
+            var visualization;
+            
+            function drawVisualization() {
+                var query = new google.visualization.Query(
+                                                           'https://docs.google.com/spreadsheet/tq?range=A1%3AAB553&key=0AsVRW51CMwa-dDBiSmhVUHphRl9oYnJmdEcxOVNVZHc&gid=0&headers=-1');
+                query.setQuery('select G, count(Z) group by G order by count(Z)');
+                // Send the query with a callback function.
+                query.send(handleQueryResponse);
+            }
+            
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var data = response.getDataTable();
+                
+                
+                var categoryPicker = new google.visualization.ControlWrapper({
+                                                                             'controlType': 'CategoryFilter',
+                                                                             'containerId': 'control2',
+                                                                             'options': {
+                                                                             'filterColumnLabel': 'Political party',
+                                                                             'ui': {
+                                                                             'labelStacking': 'vertical',
+                                                                             'allowTyping': false,
+                                                                             'allowMultiple': true
+                                                                             }
+                                                                             }
+                                                                             });
+                
+                var table = new google.visualization.ChartWrapper({
+                                                                  'chartType': 'Table',
+                                                                  'containerId': 'chart2',
+                                                                  'options': {
+                                                                  'width': '1200px'
+                                                                  }
+                                                                  });
+                
+                var columnchart = new google.visualization.ChartWrapper({
+                                                                        'chartType': 'BarChart',
+                                                                        'containerId': 'chart1',
+                                                                        'options': {
+                                                                        'width': 1200,
+                                                                        'height': 800,
+                                                                        'legend': {position: 'none'},
+                                                                        'reverseCategories' : 'true'
+                                                                        },
+                                                                        });
+                
+                
+                
+                new google.visualization.Dashboard(document.getElementById('dashboard')).
+                bind([categoryPicker], [columnchart]).
+                draw(data);
+            }
+            
+            
+            google.setOnLoadCallback(drawVisualization);
+            </script>
+    </head>
+    <body style="font-family: Arial;border: 0 none;">
+	<p ><b><center style="font-size:20px">Number of MPs per Political Party in India</center></b></p>
+        <div id="dashboard">
+					
+
+           <table>
+                <tr >
+                    <td ><h3 style="text-align:center;"></h3>
+                        <div id="control2" style="z-index:100"></div>
+                    <br>
+                        <div style="margin-top:-100px;margin-left:100px;z-index:99" id="chart1"></div>
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+​

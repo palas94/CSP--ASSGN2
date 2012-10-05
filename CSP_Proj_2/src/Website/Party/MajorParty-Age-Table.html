@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+CSP301        </title>
+        
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['table', 'corechart', 'controls']});
+            </script>
+        <script type="text/javascript">
+            var visualization;
+            
+            function drawVisualization() {
+                var query = new google.visualization.Query(
+                                                           'https://docs.google.com/spreadsheet/tq?range=A1%3AAC553&key=0AsVRW51CMwa-dDBiSmhVUHphRl9oYnJmdEcxOVNVZHc&gid=0&headers=-1');
+                query.setQuery('select G, count(K)  group by G pivot AA ');
+                // Send the query with a callback function.
+                query.send(handleQueryResponse);
+            }
+            
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var data = response.getDataTable();
+                var view = new google.visualization.DataView(data);
+                
+                view.hideRows([0,1,2,4,5,7,9,10,11,12,14,15,17,18]) ;
+                view.hideRows(20,29) ;
+                view.hideRows(31,38) ;
+                
+                var data2 = new google.visualization.DataTable();
+                data2.addColumn('string', 'MajorParties') ;
+                
+                
+                
+                
+                
+                var categoryPicker = new google.visualization.ControlWrapper({
+                                                                             'controlType': 'CategoryFilter',
+                                                                             'containerId': 'control2',
+                                                                             'options': {
+                                                                             'filterColumnLabel': 'MajorParties',
+                                                                             'ui': {
+                                                                             'labelStacking': 'vertical',
+                                                                             'allowTyping': false,
+                                                                             'allowMultiple': true
+                                                                             }
+                                                                             }
+                                                                             });
+                
+                var table = new google.visualization.ChartWrapper({
+                                                                  'chartType': 'Table',
+                                                                  'containerId': 'chart2',
+                                                                  'options': {
+                                                                  'width': '1200px'
+                                                                  }
+                                                                  });
+                
+                var columnchart = new google.visualization.ChartWrapper({
+                                                                        'chartType': 'ColumnChart',
+                                                                        'containerId': 'chart1',
+                                                                        'options': {
+                                                                        'width': 1000,
+                                                                        'height': 600,
+                                                                        
+                                                                        },
+                                                                        });
+                
+                
+                for( var i = 0 ; i < 5 ; i++) {
+                    data2.addColumn('number' , 10*(i+3) + '-' + (10*(i+3)+10) ) ;
+                }
+                data2.addColumn('number' , '80 above' ) ;  
+                data2.addRow(['All India Trinamool Congress',0,0,0,0,0,0]);
+                data2.addRow(['Bahujan Samaj Party',0,0,0,0,0,0]);
+                data2.addRow(['Bharatiya Janata Party',0,0,0,0,0,0]);
+                data2.addRow(['Dravida Munnetra Kazhagam',0,0,0,0,0,0]);
+                data2.addRow(['Indian National Congress',0,0,0,0,0,0]);
+                data2.addRow(['Janata Dal (United)',0,0,0,0,0,0]);
+                data2.addRow(['Samajwadi Party',0,0,0,0,0,0]);
+                
+                for (var r = 0 ; r < 7 ; r++ ) 
+                {
+                    for (var j = 0 ; j < 5 ; j++ )
+                    {
+                        var sum = 0 ;
+                        for (var i = 1 ; i < 11; i++) {
+                            sum += view.getValue(r,  (j*10 + i)) ;   
+                        }
+                        data2.setValue(r,1+j,sum) ;
+                    }
+                }
+                
+                
+                for (var r2 = 0 ; r2 < 7 ; r2++ ) 
+                {
+                    var sum2 = 0 ;
+                    for (var i2 = 1 ; i2 < 3; i2++) {
+                        sum2 += view.getValue(r2 ,  (50 + i2)) ;  
+                    }
+                    
+                    data2.setValue(r2,6,sum2) ;
+                }
+                
+                
+                
+                
+                
+                new google.visualization.Dashboard(document.getElementById('dashboard')).
+                bind([categoryPicker], [table]).
+                draw(data2);
+                
+            }
+            
+            
+            google.setOnLoadCallback(drawVisualization);
+            </script>
+    </head>
+    <body style="font-family: Arial;border: 0 none;">
+        <div id="dashboard">
+												<h3 style="text-align:center">Party Wise Age Distribution of MPs</h3>
+
+            <table>
+                <tr style='vertical-align: top'>
+                    <td style='width: 100px; font-size: 0.9em;'>
+                        <div id="control2"></div>
+                    </td></tr><tr><br>
+                    <td style='width: 1000px'><br><br><br><br>
+                        <div style="float: left;" id="chart2"></div>
+                        <div style="float: left;" id="chart1"></div>
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+​

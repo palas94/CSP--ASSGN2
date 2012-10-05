@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+           CSP301
+        </title>
+        
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['table', 'corechart', 'controls', 'treemap']});
+            </script>
+        <script type="text/javascript">
+            
+            
+            function drawVisualization() {
+                
+                
+                
+                
+                var query = new google.visualization.Query(
+                                                           'https://docs.google.com/spreadsheet/tq?range=A1%3AAD553&key=0AsVRW51CMwa-dDBiSmhVUHphRl9oYnJmdEcxOVNVZHc&gid=0&headers=-1');
+                query.setQuery('select E, G, O order by E, G') ;
+                query.send(handleQueryResponse);              
+                
+            }
+            
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var data = response.getDataTable() ;
+                
+                var data2 = new google.visualization.DataTable();
+                data2.addColumn('number', 'Frequency');
+                
+                var data3 = new google.visualization.DataTable();
+                data3.addColumn('string', 'State');
+                data3.addColumn('string', 'Political Party');
+                data3.addColumn('number', 'Frequency' ) ;
+                data3.addColumn('number', 'Avg. Attendance');
+                
+                
+                data3.addRow (['Parties',    null,                 0,                               0] ) ;
+                data3.addRow ( ['Bharatiya Janata Party', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['All India Majlis-E-Ittehadul Muslimmen', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Indian National Congress', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Telangana Rashtra Samithi', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Telugu Desam Party', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Yuvajana Sramika Rythu Congress Party', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Asom Gana Parishad', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Assam United Democratic Front', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Bodoland Peoples Front', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Independent', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Janata Dal (United)', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Rashtriya Janata Dal', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Haryana Janhit Congress', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Jammu and Kashmir National Conference', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Jharkhand Mukti Morcha', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Jharkhand Vikas Morcha (Prajatantrik)', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Janata Dal (Secular)', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Communist Party of India (Marxist)', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Kerala Congress (M)', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Muslim League Kerala State Committee', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Bahujan Samaj Party', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Bahujan Vikas Aaghadi', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Shiv Sena', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Nationalist Congress Party', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Swabhimani Paksha', 'Parties' , 0 , 0] ) ; 
+                data3.addRow ( ['Nagaland Peoples Front', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Biju Janata Dal', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Communist Party of India', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Shiromani Akali Dal', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Sikkim Democratic Front', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['All India Anna Dravida Munnetra Kazhagam', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Marumalarchi Dravida Munnetra Kazhagam', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Viduthalai Chiruthaigal Katchi', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Samajwadi Party', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['All India Forward Bloc', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['All India Trinamool Congress', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Revolutionary Socialist Party', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Dravida Munnetra Kazhagam', 'Parties' , 0 , 0] ) ;
+                data3.addRow ( ['Rashtriya Lok Dal', 'Parties' , 0 , 0] ) ;
+                
+                
+                
+                var r = 2 ;
+                
+                
+                while ( r < data.getNumberOfRows()  ) {
+                    var sum = 0.0 ;
+                    var v1 = data.getValue(r,1) ; 
+                    while (  (data.getValue(r,1) == v1)   ) {
+                        if (data.getValue(r,2) != null) {
+                            sum += 1 ;
+                        }
+                        r +=1 ;
+                        if ( r >= data.getNumberOfRows() ) {
+                            break;
+                        }
+                    }
+                    
+                    data2.addRow( [ sum ] ) ; 
+                    
+                }
+                
+                var r2 = 2 ;
+                var i = 0 ;
+                
+                while ( r2 < data.getNumberOfRows()  ) {
+                    var sum = 0.0 ;
+                    var v1 = data.getValue(r2,1) ; 
+                    while (  (data.getValue(r2,1) == v1)   ) {
+                        if (data.getValue(r2,2) != null) {
+                            sum += parseFloat( data.getValue(r2,2) );
+                        }
+                        r2 +=1 ;
+                        if ( r2 >= data.getNumberOfRows() ) {
+                            break;
+                        }
+                    }
+                    if (data2.getValue(i,0) != 0 ) {
+                        sum /= data2.getValue(i,0) ;
+                    }
+                    else {
+                        sum = 0 ;
+                    }
+                    var istr = i.toString() ; 
+                                if (   ((data.getValue (r2 - 1,1))  != "Bodoland People's Front" ) && ((data.getValue (r2 - 1,1))  != "Nagaland People's Front" ) ) {
+                                  data3.addRow( [ istr + (data.getValue(r2 - 1 ,0)) , (data.getValue (r2 - 1,1)) , data2.getValue(i,0) , sum] ) ; 
+                                    }
+                    else if ((data.getValue (r2 - 1,1))  == "Bodoland People's Front" ) {
+                        data3.addRow( [ istr + (data.getValue(r2 - 1 ,0)) , "Bodoland Peoples Front" , data2.getValue(i,0) , sum] ) ;
+                    }
+                    else if ((data.getValue (r2 - 1,1))  == "Nagaland People's Front" ) {
+                        data3.addRow( [ istr + ") " + (data.getValue(r2 - 1 ,0)) , "Nagaland Peoples Front" , data2.getValue(i,0) , sum] ) ;
+                    }
+                    
+                    i++ ;
+                    
+                }
+                
+                
+   
+                
+                
+                var treemap = new google.visualization.TreeMap(document.getElementById('visualization'));
+                treemap.draw(data3, {
+                             minColor: '#F2F2F2',
+                             midColor: '#FFE9E5',
+                             maxColor: '#FF2400',
+                             headerHeight: 15,
+                             fontColor: 'black',
+                             showScale: true});
+                
+            }
+            
+            
+            
+            
+            
+            
+            google.setOnLoadCallback(drawVisualization);
+            </script>
+    </head>
+    <body style="font-family: Arial;border: 0 none;">
+       
+<center><h3>Party Wise State Distribution</h3></center>
+
+       <p style="position:absolute;top:8%;left:22%;;font-size:14px"><b>The following treemap is a representation of Party-wise attendance distribution. A darker shade of color signifies a higher average attendance statistic. The size of each block is a measure of the number of MPs in the party. When left-clicked, the state-wise distribution of the party become visible. To go back, the user has to right-click the treemap.</p>
+        <div id="visualization" style="width: 1000px; height: 450px;margin-left:22%;position:fixed;bottom:5%"></div>
+		
+    </body>
+</html>
+​

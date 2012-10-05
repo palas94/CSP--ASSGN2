@@ -1,0 +1,94 @@
+Party	States	Frequency	Attendance	 Age
+Bharatiya Janata Party	A&N	1	0.76	62
+All India Majlis-E-Ittehadul Muslimmen	AP	1	0.69	43
+Indian National Congress	AP	27	0.755185185	56.37037037
+Telangana Rashtra Samithi	AP	2	0.115	52
+Telugu Desam Party	AP	6	0.688333333	54
+Yuvajana Sramika Rythu Congress Party	AP	2	0.505	53.5
+Indian National Congress	ARU	2	0.78	49
+Asom Gana Parishad	AS	1	0.73	58
+Assam United Democratic Front	AS	1	0.52	62
+Bharatiya Janata Party	AS	4	0.805	67.75
+Bodoland People's Front	AS	1	0.6	52
+Indian National Congress	AS	7	0.898571429	63.14285714
+Bharatiya Janata Party	BR	12	0.8575	58.66666667
+Independent	BR	3	0.793333333	53
+Indian National Congress	BR	1	0.94	70
+Janata Dal (United)	BR	20	0.878	58.95
+Rashtriya Janata Dal	BR	4	0.895	68
+Indian National Congress	CHN	0	0	0
+Bharatiya Janata Party	CHT	11	0.613636364	54.54545455
+Indian National Congress	CHT	1	0.93	57
+Bharatiya Janata Party	D&D	2	0.565	48.5
+Indian National Congress	DL	4	0.9625	57.75
+Bharatiya Janata Party	Goa	1	0.8	59
+Indian National Congress	Goa	1	0.94	66
+Bharatiya Janata Party	GUJ	15	0.828	58.26666667
+Indian National Congress	GUJ	8	0.73875	55.75
+Haryana Janhit Congress	HR	2	0.465	62
+Indian National Congress	HR	8	0.7425	44.25
+Bharatiya Janata Party	HP	3	0.89	52
+Indian National Congress	HP	0	0	0
+Independent	J&K	1	0.94	72
+Indian National Congress	J&K	2	0.89	56.5
+Jammu and Kashmir National Conference	J&K	2	0.86	70
+Bharatiya Janata Party	JHK	7	0.797142857	55.85714286
+Independent	JHK	2	0.59	55
+Indian National Congress	JHK	0	0	0
+Jharkhand Mukti Morcha	JHK	2	0.27	62
+Jharkhand Vikas Morcha (Prajatantrik)	JHK	2	0.52	52
+Bharatiya Janata Party	KRN	19	0.706315789	53.10526316
+Indian National Congress	KRN	4	0.7825	60
+Janata Dal (Secular)	KRN	3	0.563333333	61
+Communist Party of India (Marxist)	KRL	4	0.83	49
+Indian National Congress	KRL	11	0.852727273	59.27272727
+Kerala Congress (M)	KRL	1	0.83	47
+Muslim League Kerala State Committee	KRL	1	0.77	66
+Indian National Congress	LKS	1	0.85	30
+Bahujan Samaj Party	MP	1	0.87	43
+Bharatiya Janata Party	MP	16	0.840625	58.1875
+Indian National Congress	MP	10	0.817	52.7
+Bahujan Vikas Aaghadi	MH	1	0.93	56
+Bharatiya Janata Party	MH	9	0.72	58
+Independent	MH	1	0.48	77
+Indian National Congress	MH	13	0.809230769	59.07692308
+Nationalist Congress Party	MH	6	0.733333333	47
+Shiv Sena	MH	11	0.671818182	56.18181818
+Swabhimani Paksha	MH	1	0.73	45
+Indian National Congress	MGH	2	0.99	62.5
+Nationalist Congress Party	MGH	0	0	0
+Indian National Congress	MZ	1	0.97	76
+Nagaland People's Front	NG	1	0.92	69
+Biju Janata Dal	ORS	14	0.731428571	55.07142857
+Communist Party of India	ORS	1	0.84	48
+Indian National Congress	PUND	5	0.818	50.6
+Bharatiya Janata Party	PUN	1	0.28	48
+Indian National Congress	PUN	7	0.867142857	54
+Shiromani Akali Dal	PUN	4	0.755	56.75
+Bharatiya Janata Party	RJ	4	0.8675	49.5
+Independent	RJ	1	0.93	60
+Indian National Congress	RJ	16	0.88	55.625
+Sikkim Democratic Front	SKM	1	0.9	58
+All India Anna Dravida Munnetra Kazhagam	TN	9	0.787777778	56.55555556
+Communist Party of India	TN	1	0.95	46
+Communist Party of India (Marxist)	TN	1	0.87	61
+Dravida Munnetra Kazhagam	TN	13	0.621538462	52.84615385
+Indian National Congress	TN	7	0.84	59.71428571
+Marumalarchi Dravida Munnetra Kazhagam	TN	1	0.73	65
+Viduthalai Chiruthaigal Katchi	TN	1	0.47	50
+Communist Party of India (Marxist)	TRP	2	0.79	73
+Bahujan Samaj Party	UP	20	0.82	52.3
+Bharatiya Janata Party	UP	10	0.761	54.4
+Independent	UP	2	0.38	65
+Indian National Congress	UP	17	0.814117647	57.64705882
+Rashtriya Lok Dal	UP	5	0.728	45.8
+Samajwadi Party	UP	22	0.835	50.09090909
+Indian National Congress	UT	4	0.8175	61
+All India Forward Bloc	WB	2	0.71	54.5
+All India Trinamool Congress	WB	15	0.604	59.73333333
+Bharatiya Janata Party	WB	1	0.75	74
+Communist Party of India	WB	2	0.885	70.5
+Communist Party of India (Marxist)	WB	9	0.882222222	53.22222222
+Independent	WB	1	0.74	53
+Indian National Congress	WB	5	0.736	54.4
+Revolutionary Socialist Party	WB	2	0.685	64.5

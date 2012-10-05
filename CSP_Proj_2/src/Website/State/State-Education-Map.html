@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            CSP301
+        </title>
+        
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['table', 'corechart', 'controls', 'geochart']});
+            </script>
+        <script type="text/javascript">
+            var visualization;
+            
+            function drawVisualization() {
+                var query = new google.visualization.Query(
+                                                           'https://docs.google.com/spreadsheet/tq?range=A1%3AAB553&key=0AsVRW51CMwa-dDBiSmhVUHphRl9oYnJmdEcxOVNVZHc&gid=0&headers=-1');
+                query.setQuery('select E, count(I)  group by E pivot Y ');
+                // Send the query with a callback function.
+                query.send(handleQueryResponse);
+            }
+            
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var data = response.getDataTable();
+                var myView = new google.visualization.DataView(data) ;
+                myView.setColumns([0,13,7,6,12,4,10,3,2,9,1,11]) ;
+                
+                var data3 = new google.visualization.DataTable();
+                data3.addColumn('string', 'State') ;
+                data3.addColumn('number', 'Fraction of people above Graduate level') ;
+                
+                var scode = new Array ('IN-AN', 'IN-AP', 'IN-AR', 'IN-AS', 'IN-BR', 'IN-CH' , 'IN-CT' , 'IN-DN' , 'IN-DD' , 'IN-DL' , 'IN-GA' , 'IN-GJ' , 'IN-HR' , 'IN-HP' , 'IN-JK' , 'IN-JH' , 'IN-KA' , 'IN-KL', 'IN-LD' , 'IN-MP' , 'IN-MH' , 'IN-MN' , 'IN-ML' , 'IN-MZ' , 'IN-NL' , 'IN-OR' , 'IN-PY' , 'IN-PB' , 'IN-RJ' , 'IN-SK' , 'IN-TN' , 'IN-TR' , 'IN-UP' , 'IN-UT' , 'IN-WB'  ) ;
+                
+                
+                
+                
+                
+                for (var r3 = 1 ; r3 < 36 ; r3++ ) 
+                {
+                    var est = 0 ;
+                    var trc = 0 ;
+                    for (var i = 5 ; i < 12; i++)
+                    {
+                        est += myView.getValue(r3, i ) ;
+                    }
+                    for (var i = 1 ; i < 12; i++)
+                    {
+                        trc += myView.getValue(r3, i ) ;
+                    }
+                    
+                    if (trc != 0) {
+                        data3.addRow([ (scode[r3-1]) , est/trc ]) ;
+                    }
+                    else
+                    data3.addRow( [ (scode[r3-1]) , 0]) ;                
+                }
+                
+                var options = {
+                    region: 'IN',
+                    resolution : 'provinces' , 
+                    colorAxis : {minValue: 0.5,  maxValue: 1 ,   colors: ['#FFFFFF' , '#FF030D']} , 
+                   width : 730
+                };
+                var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+                chart.draw(data3,options);
+                
+            }
+            
+            
+            google.setOnLoadCallback(drawVisualization);
+            </script>
+    </head>
+    <body style="font-family: Arial;border: 0 none;">
+        		<h3 style="text-align:center">State Wise Educational Qualification of MPs</h3>
+<div id="chart_div"></div>
+    </body>
+</html>
+​
